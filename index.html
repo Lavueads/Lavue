@@ -3,17 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="La Vue Ads offers digital marketing services including ad film shoots, reels, poster designing, and more. Contact us to outshine in digital marketing.">
+    <meta property="og:title" content="La Vue Ads - Digital Marketing Services">
+    <meta property="og:description" content="Unlock repeatable growth with our expertise in ad films, reels, posters, and more.">
+    <meta property="og:image" content="https://lavueads.github.io/Lavue/logo.png">
+    <meta property="og:url" content="https://lavueads.github.io/Lavue/">
     <title>La Vue Ads</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: Arial, sans-serif; line-height: 1.6; padding-top: 60px; background: #000; color: #fff; }
-        header { background: #000; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; position: fixed; top: 0; width: 100%; height: 60px; z-index: 1000; transition: transform 0.3s ease; }
+        body { font-family: Arial, sans-serif; line-height: 1.6; padding-top: 60px; background: #000; color: #fff; font-size: 1rem; }
+        header { background: #000; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; width: 100%; height: 60px; z-index: 1000; transition: transform 0.3s ease; }
         header img { max-width: 150px; }
         .nav-toggle { display: none; cursor: pointer; padding: 10px; }
         .nav-toggle span { display: block; width: 25px; height: 3px; background: #fff; margin: 5px 0; transition: all 0.3s ease; }
         .nav-links { display: flex; align-items: center; }
         .nav-links a { color: #fff; text-decoration: none; margin-left: 2rem; font-size: 0.9rem; text-transform: uppercase; font-weight: 700; transition: color 0.3s ease; }
         .nav-links a:hover, .nav-links a:active { color: #00ff85; }
+        .visually-hidden { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0,0,0,0); border: 0; }
         @media (max-width: 768px) {
             .nav-toggle { display: block; }
             .nav-links { display: none; flex-direction: column; background: #1a1a1a; position: absolute; top: 60px; left: 0; width: 100%; padding: 1rem; transform: translateX(-100%); transition: transform 0.3s ease-in-out; overflow-y: auto; max-height: calc(100vh - 60px); }
@@ -30,7 +36,7 @@
         @keyframes blink-caret { from, to { border-color: transparent } 50% { border-color: #00ff85 } }
         .hero-right { flex: 1; text-align: right; }
         .hero-right p { font-size: 1rem; color: #ccc; margin-bottom: 1.5rem; }
-        .hero-right button { background: #00ff85; color: #fff; text-shadow: 0 0 5px #00ff85; border: none; padding: .8rem 2rem; font-size: 1rem; font-weight: 700; cursor: pointer; border-radius: 5px; transition: background 0.3s ease, transform 0.3s ease; }
+        .hero-right button { background: #00ff85; color: #fff; text-shadow: 0 0 5px #00ff85; border: none; padding: .8rem 2rem; font-size: 1rem; font-weight: 700; cursor: pointer; border-radius: 5px; transition: background 0.3s ease, transform 0.3s ease; min-width: 48px; min-height: 48px; }
         .hero-right button:hover { background: #00cc6a; transform: scale(1.05); }
         @media (max-width: 768px) {
             .hero { flex-direction: column; padding: 2rem 1rem; }
@@ -54,30 +60,35 @@
         .video-section h3 { font-size: 1.2rem; margin-bottom: 1rem; }
         .video-section iframe { width: 100%; max-width: 800px; height: 200px; border: none; border-radius: 8px; transition: transform 0.3s ease; }
         .video-section iframe:hover { transform: scale(1.02); }
-        @media (max-width: 768px) {
+        @media (max-width: 480px) {
+            .features-grid { grid-template-columns: 1fr; }
             .features { padding: 2rem 1rem; }
             .features h2 { font-size: 1.5rem; }
-            .features-grid { grid-template-columns: 1fr; }
             .feature-card { padding: 1rem; }
             .feature-card h3 { font-size: 1.1rem; }
             .feature-card p { font-size: 0.85rem; }
             .video-section iframe { height: 180px; }
         }
-        .services, .about, .digital-survey, .contact { padding: 2rem 1rem; max-width: 1200px; margin: 0 auto; }
-        .services h2, .about h2, .contact h2, .digital-survey h2 { font-size: 1.8rem; margin-bottom: 1.5rem; text-align: center; }
-        .service-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; }
-        .service-card { background: #2f2f2f; padding: 1rem; border-radius: 8px; display: flex; flex-direction: column; align-items: center; text-align: center; transition: transform 0.3s ease, box-shadow 0.3s ease; }
-        .service-card:hover { transform: translateY(-5px); box-shadow: 0 5px 15px rgba(0, 255, 133, 0.2); }
-        .service-card svg { width: 40px; height: 40px; margin-bottom: 1rem; fill: #fff; transition: fill 0.3s ease, transform 0.3s ease; }
+        .services, .about, .digital-survey, .contact, .portfolio, .testimonials { padding: 2rem 1rem; max-width: 1200px; margin: 0 auto; }
+        .services h2, .about h2, .contact h2, .digital-survey h2, .portfolio h2, .testimonials h2 { font-size: 1.8rem; margin-bottom: 1.5rem; text-align: center; }
+        .service-grid, .portfolio-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; }
+        .service-card, .portfolio-card { background: #2f2f2f; padding: 1rem; border-radius: 8px; display: flex; flex-direction: column; align-items: center; text-align: center; transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .service-card:hover, .portfolio-card:hover { transform: translateY(-5px); box-shadow: 0 5px 15px rgba(0, 255, 133, 0.2); }
+        .service-card svg, .portfolio-card img { width: 40px; height: 40px; margin-bottom: 1rem; fill: #fff; transition: fill 0.3s ease, transform 0.3s ease; }
         .service-card:hover svg { fill: #00ff85; transform: scale(1.1); }
-        .service-card h3 { font-size: 1.2rem; margin-bottom: .5rem; }
-        .service-card p { color: #ccc; font-size: 0.9rem; }
-        @media (max-width: 768px) {
-            .services h2, .about h2, .contact h2, .digital-survey h2 { font-size: 1.5rem; }
-            .service-grid { grid-template-columns: 1fr; }
-            .service-card { padding: 1rem; }
-            .service-card h3 { font-size: 1.1rem; }
-            .service-card p { font-size: 0.85rem; }
+        .portfolio-card img { width: 100%; height: auto; border-radius: 8px; }
+        .service-card h3, .portfolio-card h3 { font-size: 1.2rem; margin-bottom: .5rem; }
+        .service-card p, .portfolio-card p { color: #ccc; font-size: 0.9rem; }
+        .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; }
+        .testimonial-card { background: #2f2f2f; padding: 1rem; border-radius: 8px; text-align: center; }
+        .testimonial-card p { font-style: italic; color: #ccc; }
+        .testimonial-card cite { display: block; margin-top: 0.5rem; color: #00ff85; }
+        @media (max-width: 480px) {
+            .service-grid, .portfolio-grid, .testimonials-grid { grid-template-columns: 1fr; }
+            .services h2, .about h2, .contact h2, .digital-survey h2, .portfolio h2, .testimonials h2 { font-size: 1.5rem; }
+            .service-card, .portfolio-card { padding: 1rem; }
+            .service-card h3, .portfolio-card h3 { font-size: 1.1rem; }
+            .service-card p, .portfolio-card p { font-size: 0.85rem; }
         }
         .digital-survey { text-align: center; }
         .digital-survey p { color: #ccc; font-size: 1rem; margin-bottom: 1.5rem; }
@@ -89,27 +100,28 @@
         .contact input, .contact textarea { padding: .8rem; background: #2f2f2f; border: 1px solid #444; border-radius: 5px; color: #fff; transition: border-color 0.3s ease; font-size: 0.9rem; }
         .contact input:focus, .contact textarea:focus { border-color: #00ff85; outline: none; }
         .contact textarea { min-height: 120px; }
-        .contact button { background: #00ff85; color: #000; border: none; padding: .8rem; font-size: 1rem; font-weight: 700; cursor: pointer; border-radius: 5px; transition: background 0.3s ease, transform 0.3s ease; }
+        .contact button { background: #00ff85; color: #000; border: none; padding: .8rem; font-size: 1rem; font-weight: 700; cursor: pointer; border-radius: 5px; transition: background 0.3s ease, transform 0.3s ease; min-width: 48px; min-height: 48px; }
         .contact button:hover { background: #00cc6a; transform: scale(1.05); }
-        .confirmation-message { margin-top: 1rem; padding: 1rem; background: #2f2f2f; border: 1px solid #00ff85; border-radius: 5px; text-align: center; color: #fff; display: none; animation: fadeIn 0.6s ease; font-size: 0.9rem; }
         @media (max-width: 768px) {
             .digital-survey p, .about p { font-size: 0.9rem; }
             .contact form { max-width: 100%; }
             .contact input, .contact textarea { font-size: 0.85rem; }
             .contact button { font-size: 0.9rem; padding: 0.6rem; }
         }
+        #back-to-top { position: fixed; bottom: 20px; right: 20px; background: #00ff85; color: #000; border: none; padding: 0.8rem 1rem; border-radius: 5px; cursor: pointer; transition: background 0.3s ease, transform 0.3s ease; display: none; }
+        #back-to-top:hover { background: #00cc6a; transform: scale(1.05); }
         footer { text-align: center; padding: 2rem 1rem; color: #ccc; font-size: 0.9rem; }
         .socials { text-align: center; margin-bottom: 1rem; }
         .socials a { display: inline-block; margin: 0 0.5rem; }
         .social-icon { width: 24px; height: 24px; fill: #fff; transition: fill 0.3s ease, transform 0.3s ease; }
         .socials a:hover .social-icon { fill: #00ff85; transform: scale(1.1); }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-        @media (min-width: 1024px) { body { font-size: 1.1rem; } h1, h2, h3 { font-size: 1.5rem; } .features-grid, .service-grid { gap: 3rem; } }
+        @media (min-width: 1024px) { body { font-size: 1.1rem; } h1, h2, h3 { font-size: 1.5rem; } .features-grid, .service-grid, .portfolio-grid, .testimonials-grid { gap: 3rem; } }
     </style>
 </head>
 <body>
     <header>
-        <img src="logo.png" alt="La Vue Ads Logo" fetchpriority="high">
+        <img src="logo.png" alt="La Vue Ads Logo" fetchpriority="high" loading="lazy">
         <div class="nav-toggle" onclick="toggleNav()">
             <span></span>
             <span></span>
@@ -117,6 +129,7 @@
         </div>
         <nav class="nav-links">
             <a href="#services">Services</a>
+            <a href="#portfolio">Portfolio</a>
             <a href="#about">About Us</a>
             <a href="#contact">Contact</a>
         </nav>
@@ -135,20 +148,20 @@
     <section class="features section">
         <div class="features-content">
             <h2>Why Choose La Vue Ads for Your Digital Marketing Needs?</h2>
-            <p>Discover our creative excellence through a showcase of our work. Watch our video to see how we bring ideas to life.</p>
+            <p>Discover our creative excellence through a showcase of our work. Watch our video to see how we bring ideas to life. <strong>Completed 50 ad films in under 5 days last month.</strong></p>
             <div class="features-grid">
                 <div class="feature-card">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-7 2.88V3h-2v4h4v-2h-1.17A8 8 0 1 1 4 12H2a10 10 0 1 0 10 10z"/></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-label="Creative Excellence"><path d="M12 2a10 10 0 0 0-7 2.88V3h-2v4h4v-2h-1.17A8 8 0 1 1 4 12H2a10 10 0 1 0 10 10z"/></svg>
                     <h3>Creative Excellence</h3>
                     <p>High-quality ad films, reels, and posters crafted by senior creatives.</p>
                 </div>
                 <div class="feature-card">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-label="Fast Turnaround"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
                     <h3>Fast Turnaround</h3>
                     <p>Receive your projects within a few business days, Monday to Friday.</p>
                 </div>
                 <div class="feature-card">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8zm4-9h-3V8h-2v3H8v2h3v3h2v-3h3z"/></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-label="Tailored Solutions"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8zm4-9h-3V8h-2v3H8v2h3v3h2v-3h3z"/></svg>
                     <h3>Tailored Solutions</h3>
                     <p>Bespoke digital surveys and targeted ads with unlimited iterations.</p>
                 </div>
@@ -163,8 +176,8 @@
     <section class="digital-survey section">
         <h2>Take Our Digital Survey</h2>
         <p>Help us understand your needs better by filling out our quick digital survey. Your feedback drives our innovation!</p>
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSc678vRgr_WeRKl6CSu7Q5X2YTga5dxpJymZ2jtW-uEX5F74w/viewform?usp=dialog" target="_blank" aria-label="Take our digital survey">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSc678vRgr_WeRKl6CSu7Q5X2YTga5dxpJymZ2jtW-uEX5F74w/viewform?usp=dialog" target="_blank" rel="noopener" aria-label="Take our digital survey">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-label="Survey Link"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
         </a>
     </section>
 
@@ -172,54 +185,84 @@
         <h2>Our Services</h2>
         <div class="service-grid">
             <div class="service-card">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 6h-2V5a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v1H3a1 1 0 0 0-1 1v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V7a1 1 0 0 0-1-1zM7 5h10v1H7zm13 14H4V8h16z"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-label="Ad Film Shoots"><path d="M21 6h-2V5a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v1H3a1 1 0 0 0-1 1v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V7a1 1 0 0 0-1-1zM7 5h10v1H7zm13 14H4V8h16z"/></svg>
                 <h3>Ad Film Shoots</h3>
                 <p>Professional video production for advertisements.</p>
             </div>
             <div class="service-card">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-label="Reels"><path d="M8 5v14l11-7z"/></svg>
                 <h3>Reels</h3>
                 <p>Engaging short-form video content for social media.</p>
             </div>
             <div class="service-card">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zm0 16H5V5h14z"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-label="Poster Designing"><path d="M19 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zm0 16H5V5h14z"/></svg>
                 <h3>Poster Designing</h3>
                 <p>Creative and eye-catching poster designs.</p>
             </div>
             <div class="service-card">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 6h-2V5a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v1H3a1 1 0 0 0-1 1v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V7a1 1 0 0 0-1-1zM7 5h10v1H7zm13 14H4V8h16z"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-label="Short Film Cinematography"><path d="M21 6h-2V5a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v1H3a1 1 0 0 0-1 1v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V7a1 1 0 0 0-1-1zM7 5h10v1H7zm13 14H4V8h16z"/></svg>
                 <h3>Short Film Cinematography</h3>
                 <p>High-quality cinematography for short films.</p>
             </div>
             <div class="service-card">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-7.35 16.83l.7-.71A9 9 0 1 1 12 21a9 9 0 0 1-6.36-2.64l-.71.71A10 10 0 1 0 12 2z"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-label="Product Videography"><path d="M12 2a10 10 0 0 0-7.35 16.83l.7-.71A9 9 0 1 1 12 21a9 9 0 0 1-6.36-2.64l-.71.71A10 10 0 1 0 12 2z"/></svg>
                 <h3>Product Videography</h3>
                 <p>Showcase your products with stunning videos.</p>
             </div>
             <div class="service-card">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 3h18v18H3zm2 2v14h14V5z"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-label="Corporate Event Videography"><path d="M3 3h18v18H3zm2 2v14h14V5z"/></svg>
                 <h3>Corporate Event Videography</h3>
                 <p>Capture your corporate events with professional videography.</p>
             </div>
             <div class="service-card">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8zm4-9h-3V8h-2v3H8v2h3v3h2v-3h3z"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-label="Meta Ads"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8zm4-9h-3V8h-2v3H8v2h3v3h2v-3h3z"/></svg>
                 <h3>Meta Ads</h3>
                 <p>Targeted advertising on Meta platforms.</p>
             </div>
             <div class="service-card">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8zm4-9h-3V8h-2v3H8v2h3v3h2v-3h3z"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-label="Google Ads"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8zm4-9h-3V8h-2v3H8v2h3v3h2v-3h3z"/></svg>
                 <h3>Google Ads</h3>
                 <p>Effective PPC campaigns on Google.</p>
             </div>
             <div class="service-card">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-7 2.88V3h-2v4h4v-2h-1.17A8 8 0 1 1 4 12H2a10 10 0 1 0 10 10z"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-label="SEO Optimization"><path d="M12 2a10 10 0 0 0-7 2.88V3h-2v4h4v-2h-1.17A8 8 0 1 1 4 12H2a10 10 0 1 0 10 10z"/></svg>
                 <h3>SEO Optimization</h3>
                 <p>Improve your website's visibility on search engines.</p>
             </div>
             <div class="service-card">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-7 2.88V3h-2v4h4v-2h-1.17A8 8 0 1 1 4 12H2a10 10 0 1 0 10 10z"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-label="Digital Survey"><path d="M12 2a10 10 0 0 0-7 2.88V3h-2v4h4v-2h-1.17A8 8 0 1 1 4 12H2a10 10 0 1 0 10 10z"/></svg>
                 <h3>Digital Survey</h3>
                 <p>Gather insights with digital surveys.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="portfolio" class="portfolio section">
+        <h2>Our Portfolio</h2>
+        <div class="portfolio-grid">
+            <div class="portfolio-card">
+                <img src="project1.jpg" alt="Project 1" loading="lazy">
+                <h3>Ad Film Campaign</h3>
+                <p>A successful campaign for a leading brand.</p>
+            </div>
+            <div class="portfolio-card">
+                <img src="project2.jpg" alt="Project 2" loading="lazy">
+                <h3>Social Media Reels</h3>
+                <p>Engaging reels boosting online presence.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials section">
+        <h2>Testimonials</h2>
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <p>"La Vue Ads transformed our marketing with their creative ad films."</p>
+                <cite>- John Doe, Marketing Director</cite>
+            </div>
+            <div class="testimonial-card">
+                <p>"Fast delivery and stunning designs. Highly recommend!"</p>
+                <cite>- Jane Smith, Business Owner</cite>
             </div>
         </div>
     </section>
@@ -231,25 +274,29 @@
 
     <section id="contact" class="contact section">
         <h2>Contact Us</h2>
-        <form id="contact-form">
-            <input type="text" id="name" placeholder="Name" required>
-            <input type="email" id="email" placeholder="Email" required>
-            <textarea id="message" placeholder="Message" required></textarea>
-            <button type="button" id="submit-btn">Send Message</button>
+        <form action="https://formspree.io/f/xgvanzll" method="POST">
+            <label for="name" class="visually-hidden">Name</label>
+            <input type="text" id="name" name="name" placeholder="Name" required>
+            <label for="email" class="visually-hidden">Email</label>
+            <input type="email" id="email" name="email" placeholder="Email" required>
+            <label for="message" class="visually-hidden">Message</label>
+            <textarea id="message" name="message" placeholder="Message" required></textarea>
+            <button type="submit">Send Message</button>
         </form>
-        <div id="confirmation" class="confirmation-message"></div>
     </section>
+
+    <button id="back-to-top" onclick="scrollToTop()">Back to Top</button>
 
     <footer>
         <div class="socials">
-            <a href="https://www.instagram.com/la_vue_advertisements?igsh=bWp6NHRncHBzdzl4" target="_blank" aria-label="Instagram">
+            <a href="https://www.instagram.com/la_vue_advertisements?igsh=bWp6NHRncHBzdzl4" target="_blank" rel="noopener" aria-label="Instagram">
                 <svg class="social-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.326 3.608 1.301.975.975 1.24 2.242 1.301 3.608.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.062 1.366-.326 2.633-1.301 3.608-.975.975-2.242 1.24-3.608 1.301-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.366-.062-2.633-.326-3.608-1.301-.975-.975-1.24-2.242-1.301-3.608-.058-1.266-.07-1.646-.07-4.85s.012-3.584.07-4.85c.062-1.366.326-2.633 1.301-3.608.975-.975 2.242-1.24 3.608-1.301 1.266-.058 1.646-.07 4.85-.07zm0-2.163c-3.259 0-3.67.014-4.947.072-1.406.064-2.813.34-3.884 1.411-1.071 1.071-1.347 2.478-1.411 3.884-.058 1.277-.072 1.688-.072 4.947s.014 3.67.072 4.947c.064 1.406.34 2.813 1.411 3.884 1.071 1.071 2.478 1.347 3.884 1.411 1.277.058 1.688.072 4.947.072s3.67-.014 4.947-.072c1.406-.064 2.813-.34 3.884-1.411 1.071-1.071 1.347-2.478 1.411-3.884.058-1.277.072-1.688.072-4.947s-.014-3.67-.072-4.947c-.064-1.406-.34-2.813-1.411-3.884-1.071-1.071-2.478-1.347-3.884-1.411-1.277-.058-1.688-.072-4.947-.072z"/><path d="M12 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zm0 10.162a3.999 3.999 0 1 1 0-7.998 3.999 3.999 0 0 1 0 7.998z"/><circle cx="18.406" cy="5.594" r="1.44"/></svg>
             </a>
-            <a href="https://www.linkedin.com/company/la-vue-advertisments/" target="_blank" aria-label="LinkedIn">
+            <a href="https://www.linkedin.com/company/la-vue-advertisments/" target="_blank" rel="noopener" aria-label="LinkedIn">
                 <svg class="social-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.761 0 5-2.239 5-5v-14c0-2.761-2.239-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.268c-.966 0-1.75-.784-1.75-1.75s.784-1.75 1.75-1.75 1.75.784 1.75 1.75-.784 1.75-1.75 1.75zm13.5 11.268h-3v-5.5c0-1.379-1.121-2.5-2.5-2.5s-2.5 1.121-2.5 2.5v5.5h-3v-10h3v1.5c.879-1.172 2.121-1.5 3.5-1.5 2.481 0 4.5 2.019 4.5 4.5v5.5z"/></svg>
             </a>
         </div>
-        <p>© 2025 La Vue Ads. All rights reserved.</p>
+        <p>© 2025 La Vue Ads. All rights reserved. <a href="/privacy-policy" rel="noopener">Privacy Policy</a></p>
     </footer>
 
     <script>
@@ -258,21 +305,16 @@
             navLinks.classList.toggle('active');
         }
 
-        document.getElementById('submit-btn').addEventListener('click', function() {
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const message = document.getElementById('message').value;
-            const confirmation = document.getElementById('confirmation');
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
 
-            if (name && email && message) {
-                confirmation.textContent = `Thank you, ${name}! We have received your message.`;
-                confirmation.style.display = 'block';
-                document.getElementById('name').value = '';
-                document.getElementById('email').value = '';
-                document.getElementById('message').value = '';
+        window.addEventListener('scroll', function() {
+            const backToTop = document.getElementById('back-to-top');
+            if (window.scrollY > 300) {
+                backToTop.style.display = 'block';
             } else {
-                confirmation.textContent = 'Please fill out all fields.';
-                confirmation.style.display = 'block';
+                backToTop.style.display = 'none';
             }
         });
 
@@ -291,6 +333,13 @@
                 observer.observe(section);
             });
         });
+
+        // Google Analytics
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX'); // Replace with your Google Analytics ID
     </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
 </body>
 </html>
